@@ -54,7 +54,7 @@ export function boardReducer(
         return state
       }
       const columns = [...state.columns]
-      const card = columns[columnId].cards.splice(cardId, cardId + 1)[0]
+      const card = columns[columnId].cards.splice(cardId, 1)[0]
       const destColumnId = direction === 'right' ? columnId + 1 : columnId - 1
       columns[destColumnId].cards.push(card)
 
