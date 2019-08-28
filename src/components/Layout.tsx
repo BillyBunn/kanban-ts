@@ -5,7 +5,10 @@ const Layout = (props: React.PropsWithChildren<{}>) => (
     style={{ display: 'flex', flexFlow: 'column nowrap', minHeight: '100vh' }}
   >
     <header style={{ flex: '0', textAlign: 'center' }}>
-      Super Duper Kanban Board
+      <h1>TypeScript & Redux Kanban Board</h1>
+      <p>
+        <a href="https://github.com/BillyBunn/kanban-ts">See it on Github</a>
+      </p>
     </header>
     <main style={{ flex: '1' }}>{props.children}</main>
     <footer style={{ flex: '0', textAlign: 'center' }}>

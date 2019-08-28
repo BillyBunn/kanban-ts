@@ -37,6 +37,7 @@ const Column: React.FC<IColumnProps> = ({ name, cards, addCard, id }) => {
     >
       <h3>{name}</h3>
       <form
+        style={{ marginBottom: '20px' }}
         // tslint:disable-next-line: jsx-no-lambda
         onSubmit={e => {
           e.preventDefault()

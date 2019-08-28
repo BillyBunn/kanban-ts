@@ -18,12 +18,19 @@ export interface IAction {
 const initialState: IBoardState = {
   columns: [
     {
-      cards: [{ text: 'Do this thing' }, { text: 'Another thing' }],
+      cards: [
+        { text: 'Do this thing' },
+        { text: 'Another thing' },
+        { text: 'One more task' }
+      ],
       name: 'To do'
     },
-    { name: 'In progress', cards: [{ text: 'Work on this' }] },
-    { name: 'Review', cards: [] },
-    { name: 'Complete', cards: [{ text: 'Something done' }] }
+    {
+      name: 'In progress',
+      cards: [{ text: 'Working on this' }, { text: 'Do this thing' }]
+    },
+    { name: 'Review', cards: [{ text: 'Some task' }] },
+    { name: 'Complete', cards: [{ text: 'Something completed' }] }
   ]
 }
 
