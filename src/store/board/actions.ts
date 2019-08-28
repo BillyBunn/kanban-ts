@@ -1,7 +1,13 @@
 export function addCard(payload: string) {
-  console.log('ADD CARD')
   return {
-    type: 'ADD_CARD',
-    payload
+    payload,
+    type: 'ADD_CARD'
+  }
+}
+
+export function moveCard(payload: { columnId: number; cardId: string }) {
+  return {
+    payload,
+    type: 'MOVE_CARD'
   }
 }

@@ -5,14 +5,17 @@ import { AppState } from '../store'
 import * as actions from '../store/board/actions'
 import { ICard } from '../store/board/types'
 
+import Card from './Card'
+
 interface IColumnProps {
+  // addCard(payload: { columnId: number; text: string }): void
   addCard: any
   id: number
   cards: ICard[]
   name: string
 }
 
-interface DispatchProps {
+interface IDispatchProps {
   addCard: (payload: string) => void
 }
 
@@ -45,8 +48,9 @@ const Column: React.FC<IColumnProps> = ({ name, cards, addCard, id }) => {
         <input type="submit" value="Add card" />
       </form>
       <div>
-        {cards.map(({ text }, idx) => {
-          return <p key={idx}>{text}</p>
+        {cards.map(({ text }, idx, arr) => {
+          // return <p key={idx}>{text}</p>
+          return <Card key={idx} text={text} columnId={id} cardId={idx} />
         })}
       </div>
     </div>
@@ -59,7 +63,7 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<{}, {}, any>
-): DispatchProps => ({
+): IDispatchProps => ({
   addCard: payload => {
     return dispatch(actions.addCard(payload))
   }
