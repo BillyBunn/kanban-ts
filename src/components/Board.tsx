@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { AppState } from '../store'
 import { IColumn } from '../store/board/types'
 
+import Column from './Column'
+
 interface IBoardProps {
   columns: any
 }
@@ -11,22 +13,7 @@ interface IBoardProps {
 const Board: React.FC<IBoardProps> = props => (
   <div style={{ display: 'flex', flexFlow: 'row nowrap', margin: '25px' }}>
     {props.columns.map(({ name, cards }: IColumn, idx: number) => (
-      <div
-        key={idx}
-        style={{
-          backgroundColor: '#ECEEEE',
-          flex: '1',
-          margin: '20px',
-          padding: '15px'
-        }}
-      >
-        <h3>{name}</h3>
-        <div>
-          {cards.map(({ text }, idx) => {
-            return <p key={idx}>{text}</p>
-          })}
-        </div>
-      </div>
+      <Column name={name} cards={cards} id={idx} key={idx} />
     ))}
   </div>
 )
