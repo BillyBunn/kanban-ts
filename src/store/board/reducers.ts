@@ -1,5 +1,17 @@
 import { IBoardState } from './types'
 
+export enum BoardActionTypes {
+  ADD_CARD = 'ADD_CARD'
+}
+
+export interface IAction {
+  type: BoardActionTypes
+  payload: {
+    columnId: number
+    text: string
+  }
+}
+
 const initialState: IBoardState = {
   columns: [
     {
@@ -12,6 +24,17 @@ const initialState: IBoardState = {
   ]
 }
 
-export function boardReducer(state = initialState, action: object) {
-  return state
+export function boardReducer(
+  state = initialState,
+  action: IAction
+): IBoardState {
+  switch (action.type) {
+    case BoardActionTypes.ADD_CARD:
+      const { columnId, text } = action.payload
+      const columns = [...state.columns]
+      columns[columnId].cards.push({ text })
+      return { ...state, columns }
+    default:
+      return state
+  }
 }

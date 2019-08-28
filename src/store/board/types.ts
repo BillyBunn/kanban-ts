@@ -1,4 +1,5 @@
 export interface ICard {
+  // columnId: number
   text: string
 }
 
